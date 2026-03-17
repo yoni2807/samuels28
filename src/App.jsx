@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useMovies } from './hooks/useMovies';
+import { useAuth } from './hooks/useAuth';
 import Navbar from './components/Navbar';
 import MovieList from './pages/MovieList';
 import Schedule from './pages/Schedule';
 import Directors from './pages/Directors';
 import Achievements from './pages/Achievements';
+import Groups from './pages/Groups';
 
 export default function App() {
   const {
@@ -13,11 +15,13 @@ export default function App() {
     setRating, setNotes, getRandomUnwatched, stats
   } = useMovies();
 
+  const { user, login, logout } = useAuth();
+
   const sharedProps = { movies, markSeen, markUnseen, scheduleMovie, setRating, setNotes, removeMovie };
 
   return (
     <BrowserRouter>
-      <Navbar stats={stats} />
+      <Navbar user={user} onLogin={login} onLogout={logout} />
       <Routes>
         <Route path="/" element={
           <MovieList
@@ -29,6 +33,7 @@ export default function App() {
         } />
         <Route path="/schedule" element={<Schedule {...sharedProps} />} />
         <Route path="/directors" element={<Directors {...sharedProps} />} />
+        <Route path="/groups" element={<Groups user={user} movies={movies} />} />
         <Route path="/achievements" element={<Achievements stats={stats} />} />
       </Routes>
     </BrowserRouter>

@@ -57,17 +57,17 @@ function RTMeter({ score }) {
       display: 'inline-flex',
       alignItems: 'center',
       gap: '0.4rem',
-      background: isFresh ? 'rgba(255, 75, 75, 0.1)' : 'rgba(100,100,100,0.1)',
-      border: `1px solid ${isFresh ? 'rgba(255,75,75,0.3)' : 'rgba(100,100,100,0.3)'}`,
+      background: 'rgba(0,0,0,0.6)',
+      border: '1px solid rgba(255,255,255,0.1)',
       borderRadius: '5px',
       padding: '0.3rem 0.6rem',
     }}>
-      <span style={{ fontSize: '1rem' }}>{isFresh ? '🍅' : '💚'}</span>
+      <span style={{ fontSize: '1rem' }}>{isFresh ? '🎬' : '🎬'}</span>
       <span style={{
         fontFamily: 'Inter, sans-serif',
         fontSize: '0.85rem',
         fontWeight: '700',
-        color: isFresh ? '#ff6b6b' : '#8a8a8a',
+        color: '#ffffff',
       }}>{score}%</span>
       <span style={{
         fontFamily: 'Inter, sans-serif',
