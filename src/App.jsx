@@ -36,6 +36,9 @@ export default function App() {
         <Route path="/groups" element={<Groups user={user} movies={movies} />} />
         <Route path="/achievements" element={<Achievements stats={stats} />} />
       </Routes>
+      <footer className="app-footer">
+        <p>Movie data and images provided by <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">TMDB</a>. This product uses the TMDB API but is not endorsed or certified by TMDB. All movie posters and images are copyright of their respective owners.</p>
+      </footer>
     </BrowserRouter>
   );
 }

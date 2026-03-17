@@ -1148,3 +1148,20 @@ body::after {
   border-radius: 8px;
   padding: 1rem;
 }
+.app-footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: var(--aged);
+  line-height: 1.6;
+}
+
+.app-footer a {
+  color: var(--gold);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.app-footer a:hover { opacity: 1; }
