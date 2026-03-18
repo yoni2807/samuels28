@@ -193,7 +193,6 @@ export const INITIAL_MOVIES = [
   { id: '179', title: 'The Battle of Algiers', director: 'Gillo Pontecorvo', year: 1966, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '180', title: 'Crouching Tiger Hidden Dragon', director: 'Ang Lee', year: 2000, genre: 'Action', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '181', title: 'Hero', director: 'Zhang Yimou', year: 2002, genre: 'Action', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '182', title: 'La Haine', director: 'Mathieu Kassovitz', year: 1995, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 
   // Experimental & Surreal
   { id: '183', title: 'Un Chien Andalou', director: 'Luis Bunuel', year: 1929, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
@@ -230,22 +229,15 @@ export const INITIAL_MOVIES = [
   { id: '210', title: 'The Searchers', director: 'John Ford', year: 1956, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '211', title: 'Unforgiven', director: 'Clint Eastwood', year: 1992, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '212', title: 'No Country for Old Men', director: 'Coen Brothers', year: 2007, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '213', title: 'Django Unchained', director: 'Quentin Tarantino', year: 2012, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '214', title: 'High Noon', director: 'Fred Zinnemann', year: 1952, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '215', title: 'The Wild Bunch', director: 'Sam Peckinpah', year: 1969, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '216', title: 'Stagecoach', director: 'John Ford', year: 1939, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '217', title: 'Butch Cassidy and the Sundance Kid', director: 'George Roy Hill', year: 1969, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '218', title: 'The Assassination of Jesse James', director: 'Andrew Dominik', year: 2007, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '219', title: 'El Topo', director: 'Alejandro Jodorowsky', year: 1970, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 
   // War
-  { id: '220', title: 'Apocalypse Now', director: 'Francis Ford Coppola', year: 1979, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '221', title: 'Come and See', director: 'Elem Klimov', year: 1985, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '222', title: 'Das Boot', director: 'Wolfgang Petersen', year: 1981, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '223', title: 'Full Metal Jacket', director: 'Stanley Kubrick', year: 1987, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '224', title: 'The Deer Hunter', director: 'Michael Cimino', year: 1978, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '225', title: 'Inglourious Basterds', director: 'Quentin Tarantino', year: 2009, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '226', title: 'The Battle of Algiers', director: 'Gillo Pontecorvo', year: 1966, genre: 'War', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 
   // Animation
   { id: '227', title: 'Spirited Away', director: 'Hayao Miyazaki', year: 2001, genre: 'Anime', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
@@ -260,17 +252,16 @@ export const INITIAL_MOVIES = [
   { id: '236', title: 'Fantastic Mr. Fox', director: 'Wes Anderson', year: 2009, genre: 'Animation', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '237', title: 'The Iron Giant', director: 'Brad Bird', year: 1999, genre: 'Animation', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 
-  // Coen Brothers additions
+  // Coen Brothers
   { id: '238', title: 'Fargo', director: 'Coen Brothers', year: 1996, genre: 'Crime', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '239', title: 'Barton Fink', director: 'Coen Brothers', year: 1991, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '240', title: 'O Brother, Where Art Thou?', director: 'Coen Brothers', year: 2000, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '241', title: 'Burn After Reading', director: 'Coen Brothers', year: 2008, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '242', title: 'A Serious Man', director: 'Coen Brothers', year: 2009, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '243', title: 'Inside Llewyn Davis', director: 'Coen Brothers', year: 2013, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
-  { id: '244', title: 'The Man Who Wasn\'t There', director: 'Coen Brothers', year: 2001, genre: 'Mystery', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '244', title: "The Man Who Wasn't There", director: 'Coen Brothers', year: 2001, genre: 'Mystery', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '245', title: 'The Hudsucker Proxy', director: 'Coen Brothers', year: 1994, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '246', title: 'True Grit', director: 'Coen Brothers', year: 2010, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 ];
 
 export const GENRES = ['Action', 'Anime', 'Animation', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Horror', 'Musical', 'Mystery', 'Sci-Fi', 'Thriller', 'War', 'Western', 'Other'];
-//היי
