@@ -259,6 +259,17 @@ export const INITIAL_MOVIES = [
   { id: '235', title: 'Toy Story', director: 'John Lasseter', year: 1995, genre: 'Animation', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '236', title: 'Fantastic Mr. Fox', director: 'Wes Anderson', year: 2009, genre: 'Animation', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '237', title: 'The Iron Giant', director: 'Brad Bird', year: 1999, genre: 'Animation', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+
+  // Coen Brothers additions
+  { id: '238', title: 'Fargo', director: 'Coen Brothers', year: 1996, genre: 'Crime', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '239', title: 'Barton Fink', director: 'Coen Brothers', year: 1991, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '240', title: 'O Brother, Where Art Thou?', director: 'Coen Brothers', year: 2000, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '241', title: 'Burn After Reading', director: 'Coen Brothers', year: 2008, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '242', title: 'A Serious Man', director: 'Coen Brothers', year: 2009, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '243', title: 'Inside Llewyn Davis', director: 'Coen Brothers', year: 2013, genre: 'Drama', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '244', title: 'The Man Who Wasn\'t There', director: 'Coen Brothers', year: 2001, genre: 'Mystery', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '245', title: 'The Hudsucker Proxy', director: 'Coen Brothers', year: 1994, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '246', title: 'True Grit', director: 'Coen Brothers', year: 2010, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 ];
 
 export const GENRES = ['Action', 'Anime', 'Animation', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Horror', 'Musical', 'Mystery', 'Sci-Fi', 'Thriller', 'War', 'Western', 'Other'];
