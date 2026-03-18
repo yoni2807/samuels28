@@ -273,3 +273,4 @@ export const INITIAL_MOVIES = [
 ];
 
 export const GENRES = ['Action', 'Anime', 'Animation', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Horror', 'Musical', 'Mystery', 'Sci-Fi', 'Thriller', 'War', 'Western', 'Other'];
+//היי
