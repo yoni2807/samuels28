@@ -3,7 +3,17 @@ import { INITIAL_MOVIES } from '../data/movies';
 
 const STORAGE_KEY = 'cultcinema_movies';
 const VERSION_KEY = 'cultcinema_version';
-const CURRENT_VERSION = '4.1'; // שנה את המספר הזה בכל פעם שמוסיפים סרטים
+const CURRENT_VERSION = `v${INITIAL_MOVIES.length}`;
+
+function deduplicateMovies(movies) {
+  const seen = new Set();
+  return movies.filter(m => {
+    const key = `${m.title.toLowerCase()}_${m.year}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
 
 export function useMovies() {
   const [movies, setMovies] = useState(() => {
@@ -11,29 +21,25 @@ export function useMovies() {
       const savedVersion = localStorage.getItem(VERSION_KEY);
       const stored = localStorage.getItem(STORAGE_KEY);
 
-      // אם הגרסה שונה — מיזג סרטים חדשים עם הנתונים השמורים
       if (savedVersion !== CURRENT_VERSION && stored) {
         const savedMovies = JSON.parse(stored);
         const savedIds = new Set(savedMovies.map(m => m.id));
-
-        // הוסף רק סרטים חדשים שלא קיימים
         const newMovies = INITIAL_MOVIES.filter(m => !savedIds.has(m.id));
-        const merged = [...savedMovies, ...newMovies];
-
+        const merged = deduplicateMovies([...savedMovies, ...newMovies]);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
         localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
         return merged;
       }
 
-      // גרסה ראשונה — אין נתונים שמורים
       if (!stored) {
+        const deduped = deduplicateMovies(INITIAL_MOVIES);
         localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-        return INITIAL_MOVIES;
+        return deduped;
       }
 
-      return JSON.parse(stored);
+      return deduplicateMovies(JSON.parse(stored));
     } catch {
-      return INITIAL_MOVIES;
+      return deduplicateMovies(INITIAL_MOVIES);
     }
   });
 
