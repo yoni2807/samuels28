@@ -262,6 +262,7 @@ export const INITIAL_MOVIES = [
   { id: '236', title: "The Man Who Wasn't There", director: 'Coen Brothers', year: 2001, genre: 'Mystery', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '237', title: 'The Hudsucker Proxy', director: 'Coen Brothers', year: 1994, genre: 'Comedy', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
   { id: '238', title: 'True Grit', director: 'Coen Brothers', year: 2010, genre: 'Western', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
+  { id: '239', title: 'Se7en', director: 'David Fincher', year: 1995, genre: 'Thriller', status: 'unseen', rating: 0, notes: '', scheduledDate: '', watchedDate: '', addedDate: '2024-01-01' },
 ];
 
 export const GENRES = ['Action', 'Anime', 'Animation', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Horror', 'Musical', 'Mystery', 'Sci-Fi', 'Thriller', 'War', 'Western', 'Other'];
