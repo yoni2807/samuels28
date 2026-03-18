@@ -3,7 +3,7 @@ import { INITIAL_MOVIES } from '../data/movies';
 
 const STORAGE_KEY = 'cultcinema_movies';
 const VERSION_KEY = 'cultcinema_version';
-const CURRENT_VERSION = '2.0'; // שנה את המספר הזה בכל פעם שמוסיפים סרטים
+const CURRENT_VERSION = '4.0'; // שנה את המספר הזה בכל פעם שמוסיפים סרטים
 
 export function useMovies() {
   const [movies, setMovies] = useState(() => {
