@@ -1033,6 +1033,10 @@ body::after {
   width: 100%;
 }
 
+@media (min-width: 601px) {
+  .mobile-only { display: none !important; }
+  .mobile-menu { display: none !important; }
+}
 
 @media (max-width: 600px) {
   .desktop-only { display: none !important; }
