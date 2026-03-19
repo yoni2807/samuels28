@@ -804,9 +804,12 @@ body::after {
 .mobile-filters-panel { display: none; }
 
 @media (max-width: 900px) {
-  .sidebar { display: none; }
+  .sidebar { display: none !important; }
+  .app-layout { display: block; }
   .hero-title { font-size: 4rem; }
   .movies-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+ 
   /* Mobile Filter Bar */
 .mobile-filter-bar {
   display: none;
