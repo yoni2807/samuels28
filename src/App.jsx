@@ -9,13 +9,13 @@ import Achievements from './pages/Achievements';
 import Groups from './pages/Groups';
 
 export default function App() {
+  const { user, login, logout } = useAuth();
+
   const {
     movies, addMovie, removeMovie,
     markSeen, markUnseen, scheduleMovie,
     setRating, setNotes, getRandomUnwatched, stats
-  } = useMovies();
-
-  const { user, login, logout } = useAuth();
+  } = useMovies(user);
 
   const sharedProps = { movies, markSeen, markUnseen, scheduleMovie, setRating, setNotes, removeMovie };
 

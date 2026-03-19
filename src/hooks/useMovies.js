@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
+import { doc, setDoc, getDoc, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase';
 import { INITIAL_MOVIES } from '../data/movies';
-
-const STORAGE_KEY = 'cultcinema_movies';
-const VERSION_KEY = 'cultcinema_version';
-const CURRENT_VERSION = `v${INITIAL_MOVIES.length}`;
 
 function deduplicateMovies(movies) {
   const seen = new Set();
@@ -15,37 +13,45 @@ function deduplicateMovies(movies) {
   });
 }
 
-export function useMovies() {
-  const [movies, setMovies] = useState(() => {
-    try {
-      const savedVersion = localStorage.getItem(VERSION_KEY);
-      const stored = localStorage.getItem(STORAGE_KEY);
+export function useMovies(user) {
+  const [movies, setMoviesState] = useState(deduplicateMovies(INITIAL_MOVIES));
+  const [loading, setLoading] = useState(true);
 
-      if (savedVersion !== CURRENT_VERSION && stored) {
-        const savedMovies = JSON.parse(stored);
+  useEffect(() => {
+    if (!user) {
+      setMoviesState(deduplicateMovies(INITIAL_MOVIES));
+      setLoading(false);
+      return;
+    }
+
+    const userDoc = doc(db, 'users', user.uid);
+
+    const unsub = onSnapshot(userDoc, async (snap) => {
+      if (snap.exists()) {
+        const data = snap.data();
+        const savedMovies = data.movies || [];
         const savedIds = new Set(savedMovies.map(m => m.id));
         const newMovies = INITIAL_MOVIES.filter(m => !savedIds.has(m.id));
         const merged = deduplicateMovies([...savedMovies, ...newMovies]);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-        return merged;
+        setMoviesState(merged);
+      } else {
+        const initial = deduplicateMovies(INITIAL_MOVIES);
+        await setDoc(userDoc, { movies: initial });
+        setMoviesState(initial);
       }
+      setLoading(false);
+    });
 
-      if (!stored) {
-        const deduped = deduplicateMovies(INITIAL_MOVIES);
-        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-        return deduped;
-      }
+    return unsub;
+  }, [user]);
 
-      return deduplicateMovies(JSON.parse(stored));
-    } catch {
-      return deduplicateMovies(INITIAL_MOVIES);
+  const saveMovies = async (newMovies) => {
+    setMoviesState(newMovies);
+    if (user) {
+      const userDoc = doc(db, 'users', user.uid);
+      await setDoc(userDoc, { movies: newMovies }, { merge: true });
     }
-  });
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
-  }, [movies]);
+  };
 
   const addMovie = (movie) => {
     const newMovie = {
@@ -58,44 +64,32 @@ export function useMovies() {
       watchedDate: '',
       addedDate: new Date().toISOString().split('T')[0],
     };
-    setMovies(prev => [newMovie, ...prev]);
+    saveMovies([newMovie, ...movies]);
   };
 
-  const removeMovie = (id) => {
-    setMovies(prev => prev.filter(m => m.id !== id));
-  };
+  const removeMovie = (id) => saveMovies(movies.filter(m => m.id !== id));
 
-  const updateMovie = (id, updates) => {
-    setMovies(prev => prev.map(m => m.id === id ? { ...m, ...updates } : m));
-  };
+  const updateMovie = (id, updates) => saveMovies(movies.map(m => m.id === id ? { ...m, ...updates } : m));
 
-  const markSeen = (id) => {
-    setMovies(prev => prev.map(m =>
-      m.id === id
-        ? { ...m, status: 'seen', watchedDate: new Date().toISOString().split('T')[0] }
-        : m
-    ));
-  };
+  const markSeen = (id) => saveMovies(movies.map(m =>
+    m.id === id ? { ...m, status: 'seen', watchedDate: new Date().toISOString().split('T')[0] } : m
+  ));
 
-  const markUnseen = (id) => {
-    setMovies(prev => prev.map(m =>
-      m.id === id ? { ...m, status: 'unseen', watchedDate: '', rating: 0 } : m
-    ));
-  };
+  const markUnseen = (id) => saveMovies(movies.map(m =>
+    m.id === id ? { ...m, status: 'unseen', watchedDate: '', rating: 0 } : m
+  ));
 
-  const scheduleMovie = (id, date) => {
-    setMovies(prev => prev.map(m =>
-      m.id === id ? { ...m, scheduledDate: date, status: date ? 'scheduled' : 'unseen' } : m
-    ));
-  };
+  const scheduleMovie = (id, date) => saveMovies(movies.map(m =>
+    m.id === id ? { ...m, scheduledDate: date, status: date ? 'scheduled' : 'unseen' } : m
+  ));
 
-  const setRating = (id, rating) => {
-    setMovies(prev => prev.map(m => m.id === id ? { ...m, rating } : m));
-  };
+  const setRating = (id, rating) => saveMovies(movies.map(m =>
+    m.id === id ? { ...m, rating } : m
+  ));
 
-  const setNotes = (id, notes) => {
-    setMovies(prev => prev.map(m => m.id === id ? { ...m, notes } : m));
-  };
+  const setNotes = (id, notes) => saveMovies(movies.map(m =>
+    m.id === id ? { ...m, notes } : m
+  ));
 
   const getRandomUnwatched = () => {
     const unwatched = movies.filter(m => m.status === 'unseen');
@@ -111,16 +105,8 @@ export function useMovies() {
   };
 
   return {
-    movies,
-    addMovie,
-    removeMovie,
-    updateMovie,
-    markSeen,
-    markUnseen,
-    scheduleMovie,
-    setRating,
-    setNotes,
-    getRandomUnwatched,
-    stats,
+    movies, loading, addMovie, removeMovie, updateMovie,
+    markSeen, markUnseen, scheduleMovie, setRating, setNotes,
+    getRandomUnwatched, stats,
   };
 }
