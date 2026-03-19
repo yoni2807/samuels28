@@ -800,6 +800,8 @@ body::after {
 
 /* Responsive */
 
+.mobile-filter-bar { display: none; }
+.mobile-filters-panel { display: none; }
 
 @media (max-width: 900px) {
   .sidebar { display: none; }
@@ -965,8 +967,9 @@ body::after {
   .hero-progress-bar { width: 80px; }
   .hero-progress-pct { font-size: 0.85rem; }
 
-  .content-area { padding: 1rem; }
-  .movies-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  
+  .movies-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .content-area { padding: 0.75rem; }
   .movie-title { font-size: 0.85rem; }
   .movie-director { font-size: 0.62rem; }
   .movie-genre { font-size: 0.55rem; }
@@ -991,6 +994,9 @@ body::after {
 
   .achievements-grid { grid-template-columns: repeat(2, 1fr); }
   .schedule-grid { grid-template-columns: 1fr; }
+ 
+  .hero-section { height: 160px; }
+  .hero-title { font-size: 2.8rem; }
 }
 /* Auth */
 .navbar-auth { display: flex; align-items: center; gap: 0.75rem; }
